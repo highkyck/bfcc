@@ -23,7 +23,7 @@ int *e, *le,  // current position in emitted code
 enum { 
     Num = 128, Fun, Sys, Glo, Loc, Id,
     Char, Else, Enum, If, Int, Return, Sizeof, While,
-    Assign, Cond, Lor, Lan, Or, Xor, And, Eq, Ne, Lt, Gt, Le, Ge, Shl, Add, Sub, Mul, Div, Mod, Inc, Dec, Brak
+    Assign, Cond, Lor, Lan, Or, Xor, And, Eq, Ne, Lt, Gt, Le, Ge, Shl, Shr, Add, Sub, Mul, Div, Mod, Inc, Dec, Brak
 };
 // clang-format on
 
@@ -773,6 +773,8 @@ int main(int argc, char *argv[])
         a,    // ax 通用寄存器
         cycle;
 
+    int i, *t;
+
     // 第一个参数是程序本身
     --argc;
     ++argv;
@@ -1142,7 +1144,7 @@ int main(int argc, char *argv[])
             a = open((char *) sp[1], *sp);
         } else if (i == READ) {
             a = read(sp[2], (char *) sp[1], *sp);
-        } else if (i == CLOSE) {
+        } else if (i == CLOS) {
             a = close(*sp);
         } else if (i == PRTF) {
             t = sp + pc[1];
