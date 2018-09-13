@@ -1150,11 +1150,11 @@ int main(int argc, char *argv[])
         } else if (i == MALC) {
             a = (int) malloc(*sp);
         } else if (i == FREE) {
-            free((void *)*sp);
+            free((void *) *sp);
         } else if (i == MSET) {
-            a = (int)memset((char *)sp[2], sp[1], *sp);
+            a = (int) memset((char *) sp[2], sp[1], *sp);
         } else if (i == MCMP) {
-            a = memcmp((char *)sp[2], (char *)sp[1], *sp);
+            a = memcmp((char *) sp[2], (char *) sp[1], *sp);
         } else if (i == EXIT) {
             printf("exit(%d) cycle = %d\n", *sp, cycle);
             return *sp;
